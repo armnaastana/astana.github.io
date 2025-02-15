@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astana Elektronik Resource Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .premium-gradient {
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">
+                    Astana Elektronik Resource Center
+                </h1>
+                <p class="mt-2 text-gray-600">
+                    Access electronic components, technical documentation, and support
+                </p>
+            </div>
+
+            <!-- Standard Access Section -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Standard Access</h3>
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <!-- Basic Components Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Basic Electronic Components</h4>
+                                <i class="lucide-cpu text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">Standard electronic parts catalog</p>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                                Access Now
+                            </button>
+                        </div>
+
+                        <!-- Market Availability Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Market Availability</h4>
+                                <i class="lucide-package text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">Current stock and basic pricing</p>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                                Access Now
+                            </button>
+                        </div>
+
+                        <!-- Technical Specs Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Technical Specifications</h4>
+                                <i class="lucide-settings text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">Basic product specifications</p>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                                Access Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Features Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Premium Features</h3>
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <!-- Bulk Order Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Bulk Order Discounts</h4>
+                                <i class="lucide-package text-gray-400"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">Special pricing for large orders</p>
+                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
+                                Premium Feature
+                            </button>
+                        </div>
+
+                        <!-- Priority Support Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Priority Support</h4>
+                                <i class="lucide-lock text-gray-400"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">24/7 expert assistance</p>
+                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
+                                Premium Feature
+                            </button>
+                        </div>
+
+                        <!-- Advanced Schematics Card -->
+                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold">Advanced Schematics</h4>
+                                <i class="lucide-zap text-gray-400"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4">Detailed technical drawings</p>
+                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
+                                Premium Feature
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Business Account Card -->
+                <div class="card premium-gradient text-white rounded-lg shadow-md p-6">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold">Premium Business Account</h3>
+                        <p class="text-gray-100">Enhanced features for professional users</p>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="lucide-shield-check mr-2"></i>
+                            Priority Order Processing
+                        </li>
+                        <li class="flex items-center">
+                            <i class="lucide-zap mr-2"></i>
+                            Wholesale Pricing
+                        </li>
+                        <li class="flex items-center">
+                            <i class="lucide-settings mr-2"></i>
+                            Technical Consultation
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-100 transition-colors">
+                        Upgrade to Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add basic interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle standard access buttons
+            const accessButtons = document.querySelectorAll('.bg-blue-600');
+            accessButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Accessing feature...');
+                });
+            });
+
+            // Handle premium upgrade button
+            const upgradeButton = document.querySelector('.premium-gradient + button');
+            if (upgradeButton) {
+                upgradeButton.addEventListener('click', function() {
+                    alert('Redirecting to premium subscription page...');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
