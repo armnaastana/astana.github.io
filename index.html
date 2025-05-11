@@ -1,168 +1,414 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="rtl" lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astana Elektronik Resource Center</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.min.css" rel="stylesheet">
-    <style>
-        .card {
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .premium-gradient {
-            background: linear-gradient(to right, #2563eb, #4f46e5);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم ارزیابی ریسک پروژه‌های معدنی</title>
+  <style>
+    body {
+      font-family: 'Tahoma', 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      direction: rtl;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 20px;
+    }
+    .header h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: 'Tahoma', 'Arial', sans-serif;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .risk-table th, .risk-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: right;
+    }
+    .risk-table th {
+      background-color: #f2f2f2;
+    }
+    .risk-options {
+      display: flex;
+      justify-content: space-around;
+    }
+    .risk-options label {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      font-weight: normal;
+    }
+    .risk-options input {
+      margin-left: 5px;
+    }
+    .submit-btn {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #3498db;
+    }
+    .risk-level-header {
+      text-align: center;
+      font-weight: bold;
+    }
+    .risk-level-cell {
+      text-align: center;
+    }
+    .risk-summary {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      display: none;
+    }
+    .risk-summary h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .summary-table th, .summary-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    .summary-table th {
+      background-color: #f2f2f2;
+    }
+    .high-risk {
+      background-color: #ffdddd;
+    }
+    .medium-risk {
+      background-color: #ffffcc;
+    }
+    .low-risk {
+      background-color: #ddffdd;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      .risk-table {
+        font-size: 14px;
+      }
+      .risk-table th, .risk-table td {
+        padding: 6px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <!-- Header -->
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-gray-900">
-                    Astana Elektronik Resource Center
-                </h1>
-                <p class="mt-2 text-gray-600">
-                    Access electronic components, technical documentation, and support
-                </p>
-            </div>
-
-            <!-- Standard Access Section -->
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Standard Access</h3>
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        <!-- Basic Components Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Basic Electronic Components</h4>
-                                <i class="lucide-cpu text-blue-600"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">Standard electronic parts catalog</p>
-                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                                Access Now
-                            </button>
-                        </div>
-
-                        <!-- Market Availability Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Market Availability</h4>
-                                <i class="lucide-package text-blue-600"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">Current stock and basic pricing</p>
-                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                                Access Now
-                            </button>
-                        </div>
-
-                        <!-- Technical Specs Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Technical Specifications</h4>
-                                <i class="lucide-settings text-blue-600"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">Basic product specifications</p>
-                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                                Access Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Premium Features Section -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Premium Features</h3>
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        <!-- Bulk Order Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Bulk Order Discounts</h4>
-                                <i class="lucide-package text-gray-400"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">Special pricing for large orders</p>
-                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
-                                Premium Feature
-                            </button>
-                        </div>
-
-                        <!-- Priority Support Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Priority Support</h4>
-                                <i class="lucide-lock text-gray-400"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">24/7 expert assistance</p>
-                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
-                                Premium Feature
-                            </button>
-                        </div>
-
-                        <!-- Advanced Schematics Card -->
-                        <div class="card bg-white rounded-lg shadow-md p-6 opacity-75">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold">Advanced Schematics</h4>
-                                <i class="lucide-zap text-gray-400"></i>
-                            </div>
-                            <p class="text-gray-600 mb-4">Detailed technical drawings</p>
-                            <button class="w-full border border-gray-300 text-gray-600 py-2 px-4 rounded cursor-not-allowed">
-                                Premium Feature
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Premium Business Account Card -->
-                <div class="card premium-gradient text-white rounded-lg shadow-md p-6">
-                    <div class="mb-4">
-                        <h3 class="text-xl font-semibold">Premium Business Account</h3>
-                        <p class="text-gray-100">Enhanced features for professional users</p>
-                    </div>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center">
-                            <i class="lucide-shield-check mr-2"></i>
-                            Priority Order Processing
-                        </li>
-                        <li class="flex items-center">
-                            <i class="lucide-zap mr-2"></i>
-                            Wholesale Pricing
-                        </li>
-                        <li class="flex items-center">
-                            <i class="lucide-settings mr-2"></i>
-                            Technical Consultation
-                        </li>
-                    </ul>
-                    <button class="w-full bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-100 transition-colors">
-                        Upgrade to Premium
-                    </button>
-                </div>
-            </div>
-        </div>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>فرم ارزیابی ریسک پروژه‌های معدنی</h1>
     </div>
+    
+    <form id="miningRiskForm">
+      <div class="form-group">
+        <label for="projectSelect">انتخاب پروژه:</label>
+        <select id="projectSelect" name="projectSelect" required>
+          <option value="">-- انتخاب پروژه --</option>
+          <option value="توسعه معدن، IPCC، کارخانه تغلیظ فاز 3 و مدیریت باطله">توسعه معدن، IPCC، کارخانه تغلیظ فاز 3 و مدیریت باطله</option>
+          <option value="کارخانه تغلیظ فاز 4 و مدیریت باطله">کارخانه تغلیظ فاز 4 و مدیریت باطله</option>
+          <option value="افزایش ظرفیت ذوب سرچشمه">افزایش ظرفیت ذوب سرچشمه</option>
+          <option value="کارخانه مفتول 8 میلیمتری">کارخانه مفتول 8 میلیمتری</option>
+          <option value="استخراج فلزات گرانبها">استخراج فلزات گرانبها</option>
+          <option value="کارخانه CS2">کارخانه CS2</option>
+          <option value="توسعه معدن و کارخانه تغلیظ فاز 1 و مدیریت باطله سریدون">توسعه معدن و کارخانه تغلیظ فاز 1 و مدیریت باطله سریدون</option>
+          <option value="توسعه معدن و کارخانه تغلیظ فاز 2 و مدیریت باطله سریدون">توسعه معدن و کارخانه تغلیظ فاز 2 و مدیریت باطله سریدون</option>
+          <option value="توسعه معدن و کارخانه تغلیظ دره زار و مدیریت باطله دره زار">توسعه معدن و کارخانه تغلیظ دره زار و مدیریت باطله دره زار</option>
+          <option value="توسعه معدن، کارخانه تغلیظ و مدیریت باطله دره آلو">توسعه معدن، کارخانه تغلیظ و مدیریت باطله دره آلو</option>
+          <option value="توسعه معدن، کارخانه تغلیظ و مدیریت باطله میدوک-فاز 2">توسعه معدن، کارخانه تغلیظ و مدیریت باطله میدوک-فاز 2</option>
+          <option value="توسعه معدن، کارخانه تغلیظ و مدیریت باطله میدوک-فاز 3">توسعه معدن، کارخانه تغلیظ و مدیریت باطله میدوک-فاز 3</option>
+          <option value="کارخانه تغلیظ و مدیریت باطله فاز 4 میدوک">کارخانه تغلیظ و مدیریت باطله فاز 4 میدوک</option>
+          <option value="افزایش ظرفیت ذوب خاتون آباد">افزایش ظرفیت ذوب خاتون آباد</option>
+          <option value="کارخانه تغلیظ و مدیریت باطله چاه فیروزه">کارخانه تغلیظ و مدیریت باطله چاه فیروزه</option>
+          <option value="آهک خاتون آباد-فاز 1">آهک خاتون آباد-فاز 1</option>
+          <option value="آهک خاتون آباد-فاز 2">آهک خاتون آباد-فاز 2</option>
+          <option value="فلوتاسیون سرباره خاتون آباد">فلوتاسیون سرباره خاتون آباد</option>
+          <option value="توسعه معدن، کارخانه تغلیظ و مدیریت باطله فاز 3 سونگون">توسعه معدن، کارخانه تغلیظ و مدیریت باطله فاز 3 سونگون</option>
+          <option value="توسعه معدن، کارخانه تغلیظ و مدیریت باطله فاز 4 سونگون">توسعه معدن، کارخانه تغلیظ و مدیریت باطله فاز 4 سونگون</option>
+          <option value="کاتد سونگون">کاتد سونگون</option>
+          <option value="آهک اهر-فاز 1">آهک اهر-فاز 1</option>
+          <option value="آهک اهر-فاز 2">آهک اهر-فاز 2</option>
+          <option value="کاتد چابهار">کاتد چابهار</option>
+          <option value="افزایش ظرفیت کارخانه تغلیظ چهارگنبد">افزایش ظرفیت کارخانه تغلیظ چهارگنبد</option>
+          <option value="افزایش ظرفیت کارخانه تغلیظ چهل کوره">افزایش ظرفیت کارخانه تغلیظ چهل کوره</option>
+          <option value="کارخانه تغلیظ نوچون، دلفارد، سرمشک، سرکوه، دره زرشک">کارخانه تغلیظ نوچون، دلفارد، سرمشک، سرکوه، دره زرشک</option>
+          <option value="توسعه معدن ایجو">توسعه معدن ایجو</option>
+          <option value="اسید فسفریک بندرعباس (فاز 1)">اسید فسفریک بندرعباس (فاز 1)</option>
+          <option value="اسید فسفریک چابهار (فاز 1)">اسید فسفریک چابهار (فاز 1)</option>
+          <option value="ETP">ETP</option>
+        </select>
+      </div>
+      
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>عوامل ریسک</th>
+            <th colspan="4" class="risk-level-header">سطح ریسک</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th class="risk-level-cell">۱ (کم)</th>
+            <th class="risk-level-cell">۲ (متوسط)</th>
+            <th class="risk-level-cell">۳ (زیاد)</th>
+            <th class="risk-level-cell">۴ (بسیار زیاد)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>تملک</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="landRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="landRisk" value="2"> ۲</label>
+                <label><input type="radio" name="landRisk" value="3"> ۳</label>
+                <label><input type="radio" name="landRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>قانونی و حقوقی (مجوزات، مالیات، ...)</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="legalRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="legalRisk" value="2"> ۲</label>
+                <label><input type="radio" name="legalRisk" value="3"> ۳</label>
+                <label><input type="radio" name="legalRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>تأمین مواد اولیه</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="materialRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="materialRisk" value="2"> ۲</label>
+                <label><input type="radio" name="materialRisk" value="3"> ۳</label>
+                <label><input type="radio" name="materialRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>تأخیر در زمانبندی انجام پروژه به دلیل عوامل خارجی (لجستیک، زیر ساخت، ...)</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="delayRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="delayRisk" value="2"> ۲</label>
+                <label><input type="radio" name="delayRisk" value="3"> ۳</label>
+                <label><input type="radio" name="delayRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ریسک طراحی (عدم وجود دانش فنی داخلی)</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="designRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="designRisk" value="2"> ۲</label>
+                <label><input type="radio" name="designRisk" value="3"> ۳</label>
+                <label><input type="radio" name="designRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>فروش و بازاریابی محصولات</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="marketRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="marketRisk" value="2"> ۲</label>
+                <label><input type="radio" name="marketRisk" value="3"> ۳</label>
+                <label><input type="radio" name="marketRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>محیط زیست</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="envRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="envRisk" value="2"> ۲</label>
+                <label><input type="radio" name="envRisk" value="3"> ۳</label>
+                <label><input type="radio" name="envRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>تأمین تجهیزات خارجی</td>
+            <td colspan="4">
+              <div class="risk-options">
+                <label><input type="radio" name="equipRisk" value="1" required> ۱</label>
+                <label><input type="radio" name="equipRisk" value="2"> ۲</label>
+                <label><input type="radio" name="equipRisk" value="3"> ۳</label>
+                <label><input type="radio" name="equipRisk" value="4"> ۴</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <button type="submit" class="submit-btn">ثبت اطلاعات</button>
+    </form>
+    
+    <div id="riskSummary" class="risk-summary">
+      <h3>خلاصه ارزیابی ریسک</h3>
+      <div id="summaryContent"></div>
+    </div>
+  </div>
 
-    <script>
-        // Add basic interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle standard access buttons
-            const accessButtons = document.querySelectorAll('.bg-blue-600');
-            accessButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    alert('Accessing feature...');
-                });
-            });
-
-            // Handle premium upgrade button
-            const upgradeButton = document.querySelector('.premium-gradient + button');
-            if (upgradeButton) {
-                upgradeButton.addEventListener('click', function() {
-                    alert('Redirecting to premium subscription page...');
-                });
-            }
-        });
-    </script>
+  <script>
+    // ذخیره داده‌های ارزیابی ریسک
+    const projectRiskData = {};
+    
+    // ارسال فرم
+    document.getElementById('miningRiskForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const projectSelect = document.getElementById('projectSelect');
+      const projectName = projectSelect.value;
+      
+      // بررسی اعتبار انتخاب پروژه
+      if (!projectName) {
+        alert('لطفاً یک پروژه را انتخاب کنید.');
+        return;
+      }
+      
+      // جمع‌آوری داده‌های فرم
+      const formData = {
+        projectName: projectName,
+        landRisk: parseInt(document.querySelector('input[name="landRisk"]:checked').value),
+        legalRisk: parseInt(document.querySelector('input[name="legalRisk"]:checked').value),
+        materialRisk: parseInt(document.querySelector('input[name="materialRisk"]:checked').value),
+        delayRisk: parseInt(document.querySelector('input[name="delayRisk"]:checked').value),
+        designRisk: parseInt(document.querySelector('input[name="designRisk"]:checked').value),
+        marketRisk: parseInt(document.querySelector('input[name="marketRisk"]:checked').value),
+        envRisk: parseInt(document.querySelector('input[name="envRisk"]:checked').value),
+        equipRisk: parseInt(document.querySelector('input[name="equipRisk"]:checked').value)
+      };
+      
+      // محاسبه میانگین ریسک
+      const riskValues = [
+        formData.landRisk,
+        formData.legalRisk,
+        formData.materialRisk,
+        formData.delayRisk,
+        formData.designRisk,
+        formData.marketRisk,
+        formData.envRisk,
+        formData.equipRisk
+      ];
+      
+      const totalRisk = riskValues.reduce((sum, value) => sum + value, 0);
+      const averageRisk = totalRisk / riskValues.length;
+      formData.averageRisk = averageRisk.toFixed(2);
+      
+      // ذخیره داده‌ها
+      projectRiskData[projectName] = formData;
+      
+      // نمایش خلاصه
+      showRiskSummary();
+      
+      console.log('داده‌های فرم:', formData);
+      alert('اطلاعات پروژه "' + projectName + '" با موفقیت ثبت شد.');
+      
+      // پاک کردن انتخاب‌های فعلی
+      document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        radio.checked = false;
+      });
+      
+      // پاک کردن انتخاب پروژه
+      projectSelect.selectedIndex = 0;
+    });
+    
+    // نمایش خلاصه ارزیابی ریسک
+    function showRiskSummary() {
+      const riskSummary = document.getElementById('riskSummary');
+      const summaryContent = document.getElementById('summaryContent');
+      
+      // ساخت جدول خلاصه
+      let summaryHTML = '<table class="summary-table">';
+      summaryHTML += '<thead><tr><th>نام پروژه</th><th>تملک</th><th>قانونی و حقوقی</th><th>تأمین مواد اولیه</th><th>تأخیر</th><th>طراحی</th><th>فروش و بازاریابی</th><th>محیط زیست</th><th>تجهیزات خارجی</th><th>میانگین ریسک</th></tr></thead>';
+      summaryHTML += '<tbody>';
+      
+      // اضافه کردن داده‌های هر پروژه
+      for (const project in projectRiskData) {
+        const data = projectRiskData[project];
+        const avgRisk = parseFloat(data.averageRisk);
+        
+        let rowClass = '';
+        if (avgRisk >= 3) {
+          rowClass = 'high-risk';
+        } else if (avgRisk >= 2) {
+          rowClass = 'medium-risk';
+        } else {
+          rowClass = 'low-risk';
+        }
+        
+        summaryHTML += `<tr class="${rowClass}">`;
+        summaryHTML += `<td>${data.projectName}</td>`;
+        summaryHTML += `<td>${data.landRisk}</td>`;
+        summaryHTML += `<td>${data.legalRisk}</td>`;
+        summaryHTML += `<td>${data.materialRisk}</td>`;
+        summaryHTML += `<td>${data.delayRisk}</td>`;
+        summaryHTML += `<td>${data.designRisk}</td>`;
+        summaryHTML += `<td>${data.marketRisk}</td>`;
+        summaryHTML += `<td>${data.envRisk}</td>`;
+        summaryHTML += `<td>${data.equipRisk}</td>`;
+        summaryHTML += `<td>${data.averageRisk}</td>`;
+        summaryHTML += '</tr>';
+      }
+      
+      summaryHTML += '</tbody></table>';
+      
+      summaryContent.innerHTML = summaryHTML;
+      riskSummary.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
